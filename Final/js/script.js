@@ -1,9 +1,3 @@
-/*
-# This project is based on a public project but has been modified 
-# according to the requirements of the IST 107 Course.
-# Instructor: Washington Valencia
-# Institution: CCTB College
-*/
 
 document.addEventListener("DOMContentLoaded", () => {
     // Array of colors for background change
