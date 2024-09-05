@@ -77,7 +77,7 @@ input.addEventListener("keypress", addListAfterKeypress);
 
 
 
-//My new function
+//My new functions starts here
 function createListElements(new_task) {
     //you will not believe it, BUT... I WAS TRYING TO DO THIS SO MANY TIMES! I SPENT MINIMUM 30 MINUTES IN THIS!!!
     let li = document.createElement("li"); 
