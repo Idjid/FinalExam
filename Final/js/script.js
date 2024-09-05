@@ -1,3 +1,4 @@
+let task_box = ['task1', 'task2', 'task2', 'tska2']
 
 document.addEventListener("DOMContentLoaded", () => {
     // Array of colors for background change
@@ -49,7 +50,6 @@ function createListElement() {
     let dBtn = document.createElement("button");
     dBtn.appendChild(document.createTextNode("X"));
     li.appendChild(dBtn);
-
 }
 
 
@@ -68,6 +68,73 @@ function addListAfterKeypress(event) {
 
 
 enterButton.addEventListener("click", addListAfterClick);
-
 input.addEventListener("keypress", addListAfterKeypress);
 
+
+
+
+
+
+
+
+//My new function
+function createListElements(new_task) {
+    //you will not believe it, BUT... I WAS TRYING TO DO THIS SO MANY TIMES! I SPENT MINIMUM 30 MINUTES IN THIS!!!
+    let li = document.createElement("li"); 
+    li.appendChild(document.createTextNode(new_task)); 
+    ul.appendChild(li);
+
+    function crossOut() {
+        li.classList.toggle("done");
+    }
+
+    li.addEventListener("click", crossOut);
+  
+    let dBtn = document.createElement("button");
+    dBtn.appendChild(document.createTextNode("X"));
+    li.appendChild(dBtn);
+}
+
+
+function asd_task() {
+    let input_field = document.getElementById('userInput');
+    let new_task = input_field.value.trim();
+
+    if (new_task === "") {
+        alert('Dude, It is empty. Write something. We alredy know that your head is empty');
+        return;
+    }
+    
+    else if (task_box.includes(new_task)) {
+        alert("This task already exists, man! Enter a new task or you are gonna be disqalified.");
+    }
+
+    else {
+        task_box.push(new_task);
+        alert(`The "${new_task}" have been added. Good job, my boy`);
+        update_task_list(new_task);
+    }
+
+    input_field.value = "";
+}
+
+
+function ask_user() {
+    let new_task = prompt("Please enter a new task:");
+
+    while (new_task === "" || task_box.includes(new_task)) {
+        if (new_task === "") {
+            alert("Task cannot be empty, dude!");
+        } 
+        else if (task_box.includes(new_task)) {
+            alert("This task already exists, man! Enter a new task or you are gonna be disqalified.");
+        }
+        new_task = prompt("Enter a new task:");
+    }
+
+    if (new_task) {
+        task_box.push(new_task); 
+        alert(`The "${new_task}" have been added. Good job, my boy`);
+        createListElements(new_task);
+    }
+}
